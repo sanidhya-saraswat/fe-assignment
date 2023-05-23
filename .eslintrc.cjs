@@ -19,8 +19,8 @@ module.exports = {
   ],
   'rules': {
     "max-len": ["error", { "code": 100 }],
-    "react/prop-types": [0],
-    "space-infix-ops": ["error", { "int32Hint": false }]
+    "space-infix-ops": ["error", { "int32Hint": false }],
+    "curly": ["error","all"]
   },
   "settings": {
     "react": {

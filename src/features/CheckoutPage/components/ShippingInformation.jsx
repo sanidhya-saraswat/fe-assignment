@@ -1,6 +1,7 @@
 
 import React, {useState} from 'react';
-import {getInfoFromPincode} from '../../../common/utils/api';
+import {fetchInfoFromPincode} from '../../../common/utils/api';
+import PropTypes from 'prop-types';
 
 const ShippingInformation = ({submitHandler}) => {
   const [firstName, setFirstName] = useState('');
@@ -12,15 +13,21 @@ const ShippingInformation = ({submitHandler}) => {
   const [pincode, setPincode] = useState('');
 
   const onFormInputChange = async (e) => {
-    if (e.target.name == 'firstName') setFirstName(e.target.value);
-    else if (e.target.name == 'lastName') setLastName(e.target.value);
-    else if (e.target.name == 'address') setAddress(e.target.value);
-    else if (e.target.name == 'apartment') setApartment(e.target.value);
-    else if (e.target.name == 'state') setState(e.target.value);
-    else if (e.target.name == 'city') setCity(e.target.value);
-    else if (e.target.name == 'pincode') {
+    if (e.target.name == 'firstName') {
+      setFirstName(e.target.value);
+    } else if (e.target.name == 'lastName') {
+      setLastName(e.target.value);
+    } else if (e.target.name == 'address') {
+      setAddress(e.target.value);
+    } else if (e.target.name == 'apartment') {
+      setApartment(e.target.value);
+    } else if (e.target.name == 'state') {
+      setState(e.target.value);
+    } else if (e.target.name == 'city') {
+      setCity(e.target.value);
+    } else if (e.target.name == 'pincode') {
       setPincode(e.target.value);
-      const response = await getInfoFromPincode(e.target.value);
+      const response = await fetchInfoFromPincode(e.target.value);
       if (response[0].Status == 'Success') {
         setState(response[0]['PostOffice'][0]['State']);
         setCity(response[0]['PostOffice'][0]['District']);
@@ -76,6 +83,10 @@ const ShippingInformation = ({submitHandler}) => {
     className="e-button-filled w-full"
     >Proceed to payment</button>
   </div>;
+};
+
+ShippingInformation.propTypes = {
+  submitHandler: PropTypes.func,
 };
 
 export default ShippingInformation;

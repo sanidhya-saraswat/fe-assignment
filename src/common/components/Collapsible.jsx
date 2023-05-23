@@ -1,9 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {AiOutlinePlus} from 'react-icons/ai';
 import {AiOutlineMinus} from 'react-icons/ai';
+import PropTypes from 'prop-types';
 
 const Collapsible = ({
-  open = false,
+  open,
   content,
   header,
 }) => {
@@ -16,7 +17,9 @@ const Collapsible = ({
   };
 
   useEffect(() => {
-    if (!height || !isOpen || !ref.current) return undefined;
+    if (!height || !isOpen || !ref.current) {
+      return;
+    }
     const resizeObserver = new ResizeObserver((el) => {
       setHeight(el[0].contentRect.height);
     });
@@ -27,8 +30,11 @@ const Collapsible = ({
   }, [height, isOpen]);
 
   useEffect(() => {
-    if (isOpen) setHeight(ref.current?.getBoundingClientRect().height);
-    else setHeight(0);
+    if (isOpen) {
+      setHeight(ref.current?.getBoundingClientRect().height);
+    } else {
+      setHeight(0);
+    }
   }, [isOpen]);
 
   return (
@@ -47,6 +53,16 @@ const Collapsible = ({
       </div>
     </>
   );
+};
+
+Collapsible.propTypes = {
+  open: PropTypes.bool,
+  content: PropTypes.element,
+  header: PropTypes.string,
+};
+
+Collapsible.defaultProps = {
+  open: false,
 };
 
 export default Collapsible;

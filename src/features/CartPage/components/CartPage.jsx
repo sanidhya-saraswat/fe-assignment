@@ -5,9 +5,15 @@ import CartItemListing from './CartItemListing';
 import OrderSummary from './OrderSummary';
 import OrderPolicies from './OrderPolicies';
 import {useSelector} from 'react-redux';
+import {useNavigate} from 'react-router-dom';
 
 const CartPage = () => {
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.myCart.cart);
+
+  const proceedToCheckoutClicked = ()=>{
+    navigate('/checkout');
+  };
 
   return (
     <div className="page-wrapper">
@@ -25,9 +31,8 @@ const CartPage = () => {
           {cartItems.length > 0 && <div className="flex flex-col gap-6">
             <div className="text-2xl">Order Summary</div>
             <OrderSummary />
-            <Link aria-label="homepage" to="/checkout">
-              <button className="e-button-filled w-full"
-              >Proceed to checkout</button></Link>
+            <button className="e-button-filled w-full" onClick={proceedToCheckoutClicked}
+            >Proceed to checkout</button>
           </div>}
         </div>
       </div>

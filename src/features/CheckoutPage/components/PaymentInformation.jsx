@@ -2,6 +2,8 @@
 import React, {useState, Fragment} from 'react';
 import {Listbox} from '@headlessui/react';
 import {AiOutlineCheck} from 'react-icons/ai';
+import PropTypes from 'prop-types';
+import {MONTHS} from '../../../constants';
 
 const PaymentInformation = ({submitHandler}) => {
   const [name, setName] = useState('');
@@ -9,15 +11,19 @@ const PaymentInformation = ({submitHandler}) => {
   const [month, setMonth] = useState('January');
   const [year, setYear] = useState('2025');
   const [cvv, setCVV] = useState('');
-  const months = ['January', 'Febuary', 'March', 'April', 'May',
-    'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   const onFormInputChange = async (e) => {
-    if (e.target.name == 'name') setName(e.target.value);
-    else if (e.target.name == 'number') setNumber(e.target.value);
-    else if (e.target.name == 'month') setMonth(e.target.value);
-    else if (e.target.name == 'year') setYear(e.target.value);
-    else if (e.target.name == 'cvv') setCVV(e.target.value);
+    if (e.target.name == 'name') {
+      setName(e.target.value);
+    } else if (e.target.name == 'number') {
+      setNumber(e.target.value);
+    } else if (e.target.name == 'month') {
+      setMonth(e.target.value);
+    } else if (e.target.name == 'year') {
+      setYear(e.target.value);
+    } else if (e.target.name == 'cvv') {
+      setCVV(e.target.value);
+    }
   };
 
   const getButtonDisabledState = () => {
@@ -43,7 +49,7 @@ const PaymentInformation = ({submitHandler}) => {
           <Listbox.Button className="bg-transparent h-9 focus:outline-none
           border-2 border-slate-300 p-1 pl-2 pr-2">{month}</Listbox.Button>
           <Listbox.Options className="absolute z-10">
-            {months.map((monthStr) => (
+            {MONTHS.map((monthStr) => (
               <Listbox.Option as={Fragment}
                 key={monthStr}
                 value={monthStr}
@@ -76,6 +82,10 @@ const PaymentInformation = ({submitHandler}) => {
       className="e-button-filled w-full"
     >Pay with card</button>
   </div>;
+};
+
+PaymentInformation.propTypes = {
+  submitHandler: PropTypes.func,
 };
 
 export default PaymentInformation;

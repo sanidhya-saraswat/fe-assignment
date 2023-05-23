@@ -5,10 +5,12 @@ import React, {useState} from 'react';
 import ShippingInformation from './ShippingInformation';
 import PaymentInformation from './PaymentInformation';
 import {useNavigate} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {setCart} from '../../CartPage/slices/cartSlice';
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.myCart.cart);
   const [currentTab, setCurrentTab] = useState('shipping');
   const proceedToPaymentClicked = (e, shippingInfo)=>{
@@ -18,6 +20,7 @@ const CheckoutPage = () => {
 
   const payButtonClicked = (e, paymentInfo)=>{
     // use paymentInfo here
+    dispatch(setCart([]));
     navigate('/order-placed');
   };
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Product = (props) => {
-  const {productObj} = props;
+const Product = ({productObj}) => {
   const navigate = useNavigate();
 
 
@@ -24,5 +24,10 @@ const Product = (props) => {
     </div>
   );
 };
+
+Product.propTypes = {
+  productObj: PropTypes.object,
+};
+
 
 export default Product;

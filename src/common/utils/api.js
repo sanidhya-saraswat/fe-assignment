@@ -24,7 +24,7 @@ export const fetchCategories = async () => {
   return response.data;
 };
 
-export const getInfoFromPincode = async (pincode) => {
+export const fetchInfoFromPincode = async (pincode) => {
   const url = 'https://api.postalpincode.in/pincode/' + pincode;
   const response = await axios.get(url);
   return response.data;

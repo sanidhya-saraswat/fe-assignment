@@ -33,8 +33,11 @@ const ProductListing = () => {
   );
 
   const setProductsInStore = async () => {
-    if (pageNumber == 1) setLoading(true);
-    else setLoadingMoreProducts(true);
+    if (pageNumber == 1) {
+      setLoading(true);
+    } else {
+      setLoadingMoreProducts(true);
+    }
     const response = await fetchProducts(
         PRODUCT_LISTING_LIMIT,
         pageNumber,

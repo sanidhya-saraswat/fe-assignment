@@ -1,8 +1,8 @@
-import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {setSnackbarConfig} from '../slices/snackbarSlice';
 import {SNACKBAR_DEFAULT_TIMEOUT} from '../../constants';
+import classNames from 'classnames';
 
 const Snackbar = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const Snackbar = () => {
     snackbarConfig,
   ]);
 
-  return <div className={snackbarConfig.show ? ['snackbar', 'show'].join(' ') : 'snackbar'}>
+  return <div className={snackbarConfig.show ? classNames('snackbar', 'show') : 'snackbar'}>
     {snackbarConfig.message}
   </div>;
 };
