@@ -38,20 +38,18 @@ const Collapsible = ({
   }, [isOpen]);
 
   return (
-    <>
-      <div className="duration-300 shadow-md">
-        <div className="flex flex-row justify-between items-center p-4 cursor-pointer"
-          onClick={handleFilterOpening}>
-          <div>{header}</div>
-          {isOpen ? <AiOutlineMinus /> : <AiOutlinePlus />}
-        </div>
-        <div className="overflow-hidden transition-[height] duration-200" style={{height}}>
-          <div ref={ref}>
-            <div className="p-4">{content}</div>
-          </div>
+    <div className="duration-300 shadow-md">
+      <div className="flex flex-row justify-between items-center p-4 cursor-pointer"
+        onClick={handleFilterOpening}>
+        <div>{header}</div>
+        {isOpen ? <AiOutlineMinus /> : <AiOutlinePlus />}
+      </div>
+      <div className="overflow-hidden transition-[height] duration-200" style={{height}}>
+        <div ref={ref}>
+          <div className="p-4">{content}</div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

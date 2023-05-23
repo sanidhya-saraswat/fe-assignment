@@ -75,7 +75,7 @@ const Filters = () => {
       <span className="text-2xl font-bold">Filters</span>
       <div>
         <div className="flex flex-row gap-3 items-center">
-          <h3><GoSearch size="19" /></h3>
+          <GoSearch size="19" />
           <input placeholder="Search for a product"
             className="e-text-field border-b-2 border-slate-400 w-full min-w-[15rem]"
             name="myInput" value={filters.searchString} onChange={onSearch}/>

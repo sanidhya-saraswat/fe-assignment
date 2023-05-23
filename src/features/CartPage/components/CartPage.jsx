@@ -18,7 +18,7 @@ const CartPage = () => {
   return (
     <div className="page-wrapper">
       <div className="page">
-        <div className="text-4xl font-bold pb-6">Your cart</div>
+        <h1 className="text-4xl font-bold pb-6">Your cart</h1>
         <div className="flex flex-col md:flex-row justify-between gap-8">
           <div className="flex flex-col gap-8 md:max-w-lg">
             <div>Not ready to checkout?&nbsp;

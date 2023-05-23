@@ -26,7 +26,7 @@ const CheckoutPage = () => {
 
   return <div className="page-wrapper">
     <div className="page">
-      <div className="text-4xl font-bold pb-6">Checkout</div>
+      <h1 className="text-4xl font-bold pb-6">Checkout</h1>
       <div className="flex flex-col md:flex-row gap-4 justify-between">
         {cartItems.length > 0 && <div className="md:max-w-lg order-2 md:order-1">
           {currentTab == 'shipping' ?

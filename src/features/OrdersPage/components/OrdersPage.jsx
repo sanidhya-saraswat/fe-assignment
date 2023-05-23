@@ -44,7 +44,7 @@ const OrdersPage = () => {
 
   return <div className="page-wrapper">
     <div className="page">
-      <div className="text-4xl font-bold">My Orders</div>
+      <h1 className="text-4xl font-bold">My Orders</h1>
       <div className="text-xs mt-1 text-slate-600 pt-4 pb-4">
         Currently showing sample data since login is not yet implemented.</div>
       <table className="lg:table hidden table-fixed shadow w-full">

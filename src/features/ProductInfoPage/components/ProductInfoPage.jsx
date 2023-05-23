@@ -65,7 +65,7 @@ const ProductInfoPage = () => {
             </div>
             <div className="flex flex-col gap-4 w-full flex-1">
               <div className="flex flex-row justify-between items-center">
-                <div className="font-bold text-3xl max-w-xs">{product.title}</div>
+                <h1 className="font-bold text-3xl max-w-xs">{product.title}</h1>
                 <div className=" flex flex-row gap-2 items-center justify-center">
                   <AiOutlineHeart size="30"
                     className="cursor-pointer" onClick={wishlistIconClicked}/>

@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const OrderPlacedPage = () => {
   return <div className="page-wrapper">
     <div className="page">
-      <div className="text-4xl font-bold pb-6">Order placed! Thank you.</div>
+      <h1 className="text-4xl font-bold pb-6">Order placed! Thank you.</h1>
       <div>Go to <Link aria-label="orders" to="/orders"
         className="hover:underline font-bold">My Orders</Link> to view your orders.</div>
     </div>
