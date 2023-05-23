@@ -11,19 +11,16 @@ const PaymentInformation = ({submitHandler}) => {
   const [month, setMonth] = useState('January');
   const [year, setYear] = useState('2025');
   const [cvv, setCVV] = useState('');
+  const formActionMappings = {
+    'name': setName,
+    'number': setNumber,
+    'month': setMonth,
+    'year': setYear,
+    'cvv': setCVV,
+  };
 
   const onFormInputChange = async (e) => {
-    if (e.target.name == 'name') {
-      setName(e.target.value);
-    } else if (e.target.name == 'number') {
-      setNumber(e.target.value);
-    } else if (e.target.name == 'month') {
-      setMonth(e.target.value);
-    } else if (e.target.name == 'year') {
-      setYear(e.target.value);
-    } else if (e.target.name == 'cvv') {
-      setCVV(e.target.value);
-    }
+    formActionMappings[e.target.name](e.target.value);
   };
 
   const getButtonDisabledState = () => {

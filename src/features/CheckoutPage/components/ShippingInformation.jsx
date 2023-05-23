@@ -11,22 +11,19 @@ const ShippingInformation = ({submitHandler}) => {
   const [state, setState] = useState('');
   const [city, setCity] = useState('');
   const [pincode, setPincode] = useState('');
+  const formActionMappings = {
+    'firstName': setFirstName,
+    'lastName': setLastName,
+    'address': setAddress,
+    'apartment': setApartment,
+    'state': setState,
+    'city': setCity,
+    'pincode': setPincode,
+  };
 
   const onFormInputChange = async (e) => {
-    if (e.target.name == 'firstName') {
-      setFirstName(e.target.value);
-    } else if (e.target.name == 'lastName') {
-      setLastName(e.target.value);
-    } else if (e.target.name == 'address') {
-      setAddress(e.target.value);
-    } else if (e.target.name == 'apartment') {
-      setApartment(e.target.value);
-    } else if (e.target.name == 'state') {
-      setState(e.target.value);
-    } else if (e.target.name == 'city') {
-      setCity(e.target.value);
-    } else if (e.target.name == 'pincode') {
-      setPincode(e.target.value);
+    formActionMappings[e.target.name](e.target.value);
+    if (e.target.name == 'pincode') {
       const response = await fetchInfoFromPincode(e.target.value);
       if (response[0].Status == 'Success') {
         setState(response[0]['PostOffice'][0]['State']);
