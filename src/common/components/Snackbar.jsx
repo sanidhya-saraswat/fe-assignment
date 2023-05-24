@@ -22,7 +22,11 @@ const Snackbar = () => {
     snackbarConfig,
   ]);
 
-  return <div className={snackbarConfig.show ? classNames('snackbar', 'show') : 'snackbar'}>
+  return <div className={snackbarConfig.show ? classNames(
+      `bg-slate-700 text-white text-center p-2 fixed z-10
+       bottom-[30px] min-w-[250px] ml-[-125px] left-[50%]`) :
+     `invisible border-r-8 bg-slate-700 text-white text-center
+      p-2 fixed z-10 bottom-[30px] min-w-[250px] ml-[-125px] left-[50%]`}>
     {snackbarConfig.message}
   </div>;
 };
