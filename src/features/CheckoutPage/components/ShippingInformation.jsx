@@ -26,8 +26,8 @@ const ShippingInformation = ({submitHandler}) => {
     if (e.target.name == 'pincode') {
       const response = await fetchInfoFromPincode(e.target.value);
       if (response[0].Status == 'Success') {
-        setState(response[0]['PostOffice'][0]['State']);
-        setCity(response[0]['PostOffice'][0]['District']);
+        setState(response[0]?.['PostOffice'][0]?.['State']);
+        setCity(response[0]?.['PostOffice'][0]?.['District']);
       } else {
         setState('');
         setCity('');

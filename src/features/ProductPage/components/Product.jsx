@@ -6,8 +6,8 @@ const Product = ({productObj}) => {
   const navigate = useNavigate();
 
 
-  const onProductClicked = (event, id) => {
-    navigate(`/products/${id}`);
+  const onProductClicked = (e) => {
+    navigate(`/products/${productObj.id}`);
   };
 
   return (
@@ -16,10 +16,8 @@ const Product = ({productObj}) => {
         <img alt="product-image" src={productObj.image}
           className="max-w-full max-h-full w-auto h-auto" />
       </div>
-      <button onClick={(e) => onProductClicked(
-          e,
-          productObj.id,
-      )} className=" text-left hover:cursor-pointer hover:underline max-w-[15rem]">
+      <button onClick={onProductClicked} className="
+      text-left hover:cursor-pointer hover:underline max-w-[15rem]">
         {productObj.title}</button>
       <span>${productObj.price}</span>
     </div>

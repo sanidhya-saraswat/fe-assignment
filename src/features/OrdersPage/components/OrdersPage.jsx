@@ -1,14 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {SAMPLE_ORDERS} from '../../../constants';
 import Footer from '../../Footer/components/Footer';
 
 const OrdersPage = () => {
-  const [orders, setOrders] = useState([]);
-
-  useEffect(() => {
-    // currently setting orders manually. In future will fetch orders from API
-    setOrders(SAMPLE_ORDERS);
-  }, []);
+  const orders = SAMPLE_ORDERS;
 
   return <div className="flex flex-col min-h-[100vh] justify-center items-center">
     <div className="flex-1 p-10 max-w-screen-lg w-full">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useState, useEffect} from 'react';
 import {fetchCategories} from '../../../common/utils/api';
@@ -21,6 +21,12 @@ const Filters = () => {
   const [availableCategories, setAvailableCategories] = useState([]);
   const availableRatings = [3, 4];
   const filters = useSelector((state) => state.filters.filters);
+  const formatCategory = useCallback(
+      (category) => {
+        return ' ' + category.charAt(0).toUpperCase() + category.slice(1);
+      },
+      [availableCategories],
+  );
 
   useEffect(
       () => {
@@ -92,7 +98,7 @@ const Filters = () => {
             key={category}
             isChecked={filters.categories.includes(category)}
             onChange={() => onCategoryChange(category)}
-            label={` ${category.charAt(0).toUpperCase()}${category.slice(1)}`}
+            label={`${formatCategory(category)}`}
           />)}
         </div> : <BiLoaderCircle className="animate-spin" size="26" />}
       </div>
