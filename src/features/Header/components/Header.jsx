@@ -5,10 +5,11 @@ import {BsCart} from 'react-icons/bs';
 import Banner from '../../Banner/components/Banner.jsx';
 import {useDispatch, useSelector} from 'react-redux';
 import {setSnackbarConfig} from '../../../common/slices/snackbarSlice';
+import {getCart} from '../../CartPage/slices/cartSlice.js';
 
 const Header = () => {
   const showBanner = true; // Read this value from API later
-  const myCart = useSelector((state) => state.myCart.cart);
+  const myCart = useSelector(getCart);
   const myCartQuantity = myCart.reduce((acc, curr) => acc + curr.quantity, 0);
   const dispatch = useDispatch();
   const loginClicked = () => {

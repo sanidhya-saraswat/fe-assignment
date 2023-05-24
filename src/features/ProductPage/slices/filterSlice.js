@@ -10,7 +10,7 @@ const initialState = {
 };
 
 export const filterSlice = createSlice({
-  name: 'products',
+  name: 'filters',
   initialState,
   reducers: {
     setFilters: (state, {payload}) => {
@@ -36,6 +36,8 @@ export const filterSlice = createSlice({
     },
   },
 });
+
+export const getFilters = (state)=>state.filters.filters;
 
 export const {
   setFilters,

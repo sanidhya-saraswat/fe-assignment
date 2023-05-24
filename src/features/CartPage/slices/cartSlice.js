@@ -35,6 +35,8 @@ export const cartSlice = createSlice({
   },
 });
 
+export const getCart = (state)=>state.myCart.cart;
+
 export const {
   setCart, addToCart, removeFromCart, updateQuantityOfCartItem,
 } = cartSlice.actions;

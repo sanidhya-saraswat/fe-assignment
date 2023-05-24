@@ -11,6 +11,7 @@ import {
   setMaxPrice,
   setRating,
   setSearchString,
+  getFilters,
 } from '../slices/filterSlice';
 import {GoSearch} from 'react-icons/go';
 import {DEFAULT_MAX_PRICE, DEFAULT_MIN_PRICE, DEFAULT_RATING} from '../../../constants';
@@ -20,7 +21,7 @@ const Filters = () => {
   const dispatch = useDispatch();
   const [availableCategories, setAvailableCategories] = useState([]);
   const availableRatings = [3, 4];
-  const filters = useSelector((state) => state.filters.filters);
+  const filters = useSelector(getFilters);
   const formatCategory = useCallback(
       (category) => {
         return ' ' + category.charAt(0).toUpperCase() + category.slice(1);

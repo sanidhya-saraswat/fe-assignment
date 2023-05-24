@@ -1,12 +1,12 @@
 import {useDispatch, useSelector} from 'react-redux';
 import React, {useEffect} from 'react';
-import {setSnackbarConfig} from '../slices/snackbarSlice';
+import {setSnackbarConfig, getSnackbarConfig} from '../slices/snackbarSlice';
 import {SNACKBAR_DEFAULT_TIMEOUT} from '../../constants';
 import classNames from 'classnames';
 
 const Snackbar = () => {
   const dispatch = useDispatch();
-  const snackbarConfig = useSelector((state) => state.snackbar.snackbarConfig);
+  const snackbarConfig = useSelector(getSnackbarConfig);
   let timeout;
 
   useEffect(() => {

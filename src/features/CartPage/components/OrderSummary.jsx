@@ -1,10 +1,11 @@
 import {setSnackbarConfig} from '../../../common/slices/snackbarSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import React, {useState, useEffect} from 'react';
+import {getCart} from '../slices/cartSlice';
 
 const OrderSummary = () => {
   const [couponCode, setCouponCode] = useState('');
-  const cartItems = useSelector((state) => state.myCart.cart);
+  const cartItems = useSelector(getCart);
   const [total, setTotal] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
 

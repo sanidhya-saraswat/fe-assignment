@@ -1,10 +1,10 @@
 import CartItem from './CartItem';
 import React from 'react';
-import {removeFromCart} from '../slices/cartSlice';
+import {removeFromCart, getCart} from '../slices/cartSlice';
 import {useSelector, useDispatch} from 'react-redux';
 
 const CartItemListing = () => {
-  const cartItems = useSelector((state) => state.myCart.cart);
+  const cartItems = useSelector(getCart);
   const dispatch = useDispatch();
 
   const onRemoveHandler = (id) => {

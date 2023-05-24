@@ -17,6 +17,9 @@ export const snackbarSlice = createSlice({
   },
 });
 
+export const getSnackbarConfig = (state) =>
+  state.snackbar.snackbarConfig;
+
 export const {
   setSnackbarConfig,
 } = snackbarSlice.actions;

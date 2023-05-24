@@ -6,10 +6,11 @@ import OrderSummary from './OrderSummary';
 import OrderPolicies from './OrderPolicies';
 import {useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
+import {getCart} from '../slices/cartSlice';
 
 const CartPage = () => {
   const navigate = useNavigate();
-  const cartItems = useSelector((state) => state.myCart.cart);
+  const cartItems = useSelector(getCart);
 
   const proceedToCheckoutClicked = ()=>{
     navigate('/checkout');

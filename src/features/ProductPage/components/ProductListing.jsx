@@ -1,16 +1,17 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {setProducts, addProducts} from '../slices/productSlice';
+import {setProducts, addProducts, getProducts} from '../slices/productSlice';
 import {fetchProducts} from '../../../common/utils/api';
 import {useState, useEffect} from 'react';
 import {PRODUCT_LISTING_LIMIT} from '../../../constants';
 import Product from './Product';
 import {BiLoaderCircle} from 'react-icons/bi';
+import {getFilters} from '../slices/filterSlice';
 
 const ProductListing = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products.products);
-  const filters = useSelector((state) => state.filters.filters);
+  const products = useSelector(getProducts);
+  const filters = useSelector(getFilters);
   const [pageNumber, setPageNumber] = useState(1);
   const [isLastPage, setIsLastPage] = useState(false);
   const [productsCount, setProductsCount] = useState(0);
