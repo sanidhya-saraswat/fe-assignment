@@ -14,8 +14,8 @@ const CartItem = ({item, onRemoveHandler}) => {
         <span className="font-bold">${item.price}</span>
       </div>
     </div>
-    <div onClick={(e)=>onRemoveHandler(item.id)}
-      className="mb-2 underline cursor-pointer">Remove</div>
+    <button onClick={(e)=>onRemoveHandler(item.id)}
+      className="mb-2 underline cursor-pointer">Remove</button>
   </div>;
 };
 

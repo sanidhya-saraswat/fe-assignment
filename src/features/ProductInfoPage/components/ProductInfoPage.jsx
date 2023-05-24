@@ -67,10 +67,10 @@ const ProductInfoPage = () => {
               <div className="flex flex-row justify-between items-center">
                 <h1 className="font-bold text-3xl max-w-xs">{product.title}</h1>
                 <div className=" flex flex-row gap-2 items-center justify-center">
-                  <AiOutlineHeart size="30"
-                    className="cursor-pointer" onClick={wishlistIconClicked}/>
-                  <BiLinkExternal size="30"
-                    className="cursor-pointer" onClick={externalLinkIconClicked}/>
+                  <button onClick={wishlistIconClicked}><AiOutlineHeart size="30"
+                    className="cursor-pointer" /></button>
+                  <button onClick={externalLinkIconClicked}><BiLinkExternal size="30"
+                    className="cursor-pointer"/></button>
                 </div>
               </div>
               <div className="text-lg">${product.price}</div>
@@ -82,14 +82,14 @@ const ProductInfoPage = () => {
                 <div className="flex flex-col gap-2">
                   <span className="text-md text-slate-700">Quantity</span>
                   <div className="flex items-center justify-center text-xl">
-                    <span className="cursor-pointer select-none border-2
+                    <button className="cursor-pointer select-none border-2
                     border-slate-500 p-4 pt-2 pb-2"
-                    onClick={(e) => decrementQuantity(e)}>-</span>
+                    onClick={(e) => decrementQuantity(e)}>-</button>
                     <span className="border-t-2 border-b-2 border-slate-500 p-4 pt-2 pb-2
                     min-w-[3.5rem] text-center">{quantity}</span>
-                    <span className="cursor-pointer select-none border-2 border-slate-500
+                    <button className="cursor-pointer select-none border-2 border-slate-500
                     p-4 pt-2 pb-2"
-                    onClick={(e) => incrementQuantity(e)}>+</span>
+                    onClick={(e) => incrementQuantity(e)}>+</button>
                   </div>
                 </div>
               </div>

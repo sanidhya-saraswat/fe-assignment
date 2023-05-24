@@ -6,37 +6,37 @@ const Footer = () =>
       <div className="flex flex-col gap-4">
         <span className="text-lg font-bold">Lorem Ipsum</span>
         <div className="flex flex-col gap-2 text-slate-600">
-          <span>Ipsum</span>
-          <span>Ipsum</span>
-          <span>Ipsum</span>
-          <span>Ipsum</span>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
         </div>
       </div>
       <div className="flex flex-col gap-4">
         <span className="text-lg font-bold">Lorem Ipsum</span>
         <div className="flex flex-col gap-2 text-slate-600">
-          <span>Ipsum</span>
-          <span>Ipsum</span>
-          <span>Ipsum</span>
-          <span>Ipsum</span>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
         </div>
       </div>
       <div className="flex flex-col gap-4">
         <span className="text-lg font-bold">Lorem Ipsum</span>
         <div className="flex flex-col gap-2 text-slate-600">
-          <span>Ipsum</span>
-          <span>Ipsum</span>
-          <span>Ipsum</span>
-          <span>Ipsum</span>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
         </div>
       </div>
       <div className="flex flex-col gap-4">
         <span className="text-lg font-bold">Lorem Ipsum</span>
         <div className="flex flex-col gap-2 text-slate-600">
-          <span>Ipsum</span>
-          <span>Ipsum</span>
-          <span>Ipsum</span>
-          <span>Ipsum</span>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
+          <a href="/">Ipsum</a>
         </div>
       </div>
     </div>

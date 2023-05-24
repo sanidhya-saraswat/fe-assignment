@@ -12,9 +12,10 @@ const Checkbox = ({id, isChecked, label, onChange}) => <div>
 </div>;
 
 Checkbox.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string,
+    PropTypes.number]),
   isChecked: PropTypes.bool,
-  label: PropTypes.string,
+  label: PropTypes.node,
   onChange: PropTypes.func,
 };
 

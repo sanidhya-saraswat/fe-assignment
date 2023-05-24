@@ -39,11 +39,13 @@ const Collapsible = ({
 
   return (
     <div className="duration-300 shadow-md">
-      <div className="flex flex-row justify-between items-center p-4 cursor-pointer"
-        onClick={handleFilterOpening}>
-        <div>{header}</div>
-        {isOpen ? <AiOutlineMinus /> : <AiOutlinePlus />}
-      </div>
+      <button onClick={handleFilterOpening} className="w-full">
+        <div className="flex flex-row justify-between items-center p-4 cursor-pointer"
+        >
+          <div>{header}</div>
+          {isOpen ? <AiOutlineMinus /> : <AiOutlinePlus />}
+        </div>
+      </button>
       <div className="overflow-hidden transition-[height] duration-200" style={{height}}>
         <div ref={ref}>
           <div className="p-4">{content}</div>
@@ -55,7 +57,7 @@ const Collapsible = ({
 
 Collapsible.propTypes = {
   open: PropTypes.bool,
-  content: PropTypes.element,
+  content: PropTypes.node,
   header: PropTypes.string,
 };
 

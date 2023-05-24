@@ -16,10 +16,11 @@ const Product = ({productObj}) => {
         <img alt="product-image" src={productObj.image}
           className="e-image" />
       </div>
-      <span onClick={(e) => onProductClicked(
+      <button onClick={(e) => onProductClicked(
           e,
           productObj.id,
-      )} className="hover:cursor-pointer hover:underline max-w-[15rem]">{productObj.title}</span>
+      )} className=" text-left hover:cursor-pointer hover:underline max-w-[15rem]">
+        {productObj.title}</button>
       <span>${productObj.price}</span>
     </div>
   );

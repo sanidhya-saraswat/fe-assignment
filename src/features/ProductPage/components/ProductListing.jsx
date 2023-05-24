@@ -80,7 +80,8 @@ const ProductListing = () => {
         <div className="text-right">Showing {productsCount} products</div>
         {products.length > 0 ?
           <div className="flex flex-col gap-16 justify-center items-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-8 w-full">
+            <div role="list"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-8 w-full">
               {products.map((productObj) =>
                 <Product key={productObj.temp_id} productObj={productObj} />)}
             </div>
