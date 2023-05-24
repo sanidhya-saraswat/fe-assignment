@@ -77,7 +77,8 @@ const Filters = () => {
         <div className="flex flex-row gap-3 items-center">
           <GoSearch size="19" />
           <input placeholder="Search for a product"
-            className="e-text-field border-b-2 border-slate-400 w-full min-w-[15rem]"
+            className="bg-transparent h-8 focus:outline-none border-b-2
+            border-slate-400 w-full min-w-[15rem]"
             name="myInput" value={filters.searchString} onChange={onSearch}/>
         </div>
         <div className="text-xs mt-1 text-slate-600">
@@ -99,10 +100,12 @@ const Filters = () => {
         <span className="text-lg font-bold">Price Range</span>
         <div className="flex flex-row gap-4">
           <input placeholder="Min" type="number" min={DEFAULT_MIN_PRICE} max={DEFAULT_MAX_PRICE}
-            className="e-text-field-with-border min-w-[5rem]" name="minPrice"
+            className="bg-transparent h-8 focus:outline-none border-2
+            border-slate-300 p-4 min-w-[5rem]" name="minPrice"
             value={filters.minPrice} onChange={(e) => onMinPriceChange(e)} />
           <input placeholder="Max" type="number" min={DEFAULT_MIN_PRICE} max={DEFAULT_MAX_PRICE}
-            className="e-text-field-with-border min-w-[5rem]" name="maxPrice"
+            className="bg-transparent h-8 focus:outline-none border-2
+            border-slate-300 p-4 min-w-[5rem]" name="maxPrice"
             value={filters.maxPrice} onChange={(e) => onMaxPriceChange(e)} />
         </div>
       </div>

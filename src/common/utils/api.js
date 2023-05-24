@@ -1,8 +1,9 @@
 import axios from 'axios';
+import {BASE_URL} from '../../constants';
 
 export const fetchProducts = async (limit, pageNumber, minPrice, maxPrice, categories, rating) => {
   /* eslint-disable-next-line max-len */
-  let url = `https://vast-erin-gosling-vest.cyclic.app/products?limit=${limit}&page=${pageNumber}&minPrice=${minPrice}&maxPrice=${maxPrice}&rating=${rating}`;
+  let url = `${BASE_URL}products?limit=${limit}&page=${pageNumber}&minPrice=${minPrice}&maxPrice=${maxPrice}&rating=${rating}`;
   if (categories.length) {
     categories = categories.join(',');
     url += `&category=${categories}`;
@@ -12,14 +13,14 @@ export const fetchProducts = async (limit, pageNumber, minPrice, maxPrice, categ
 };
 
 export const fetchProductById = async (id) => {
-  const url = `https://vast-erin-gosling-vest.cyclic.app/products/${id}`;
+  const url = `${BASE_URL}products/${id}`;
   const response = await axios.get(url);
   return response.data;
 };
 
 
 export const fetchCategories = async () => {
-  const url = 'https://vast-erin-gosling-vest.cyclic.app/products/categories';
+  const url = `${BASE_URL}products/categories`;
   const response = await axios.get(url);
   return response.data;
 };

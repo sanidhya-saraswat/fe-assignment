@@ -36,10 +36,12 @@ const PaymentInformation = ({submitHandler}) => {
     <div className="text-lg">Payment Information</div>
     <div className="flex flex-col gap-2">
       <input placeholder="Cardholder Name"
-        className="e-text-field-with-border min-w-[5rem] w-full" name="name"
+        className="bg-transparent h-8 focus:outline-none border-2 border-slate-300
+         p-4 min-w-[5rem] w-full" name="name"
         value={name} onChange={(e) => onFormInputChange(e)} />
       <input placeholder="Card Number"
-        className="e-text-field-with-border min-w-[5rem]" name="number"
+        className="bg-transparent h-8 focus:outline-none border-2 border-slate-300
+         p-4 min-w-[5rem]" name="number"
         value={number} onChange={(e) => onFormInputChange(e)} />
       <div className="flex flex-row gap-2">
         <Listbox value={month} onChange={setMonth}>
@@ -67,16 +69,19 @@ const PaymentInformation = ({submitHandler}) => {
           </Listbox.Options>
         </Listbox>
         <input placeholder="Year"
-          className="e-text-field-with-border min-w-[5rem] disabled:bg-slate-300" name="year"
+          className="bg-transparent h-8 focus:outline-none border-2
+          border-slate-300 p-4 min-w-[5rem] disabled:bg-slate-300" name="year"
           value={year} onChange={(e) => onFormInputChange(e)} />
         <input placeholder="CVV"
-          className="e-text-field-with-border min-w-[5rem]" name="cvv"
+          className="bg-transparent h-8 focus:outline-none border-2
+          border-slate-300 p-4 min-w-[5rem]" name="cvv"
           value={cvv} onChange={(e) => onFormInputChange(e)} />
       </div>
     </div>
     <button disabled={getButtonDisabledState()}
       onClick={(e) => submitHandler(e, {name, number, month, year, cvv})}
-      className="e-button-filled w-full"
+      className="border-0 p-2 bg-slate-900 text-white enabled:active:scale-95
+      transition duration-150 ease-in-out w-full"
     >Pay with card</button>
   </div>;
 };

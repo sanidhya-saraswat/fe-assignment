@@ -56,12 +56,13 @@ const ProductInfoPage = () => {
 
   return (
     <div>
-      {product && <div className="page-wrapper">
-        <div className="page">
+      {product && <div className="flex flex-col min-h-[100vh] justify-center items-center">
+        <div className="flex-1 p-10 max-w-screen-lg w-full">
           <div className="flex flex-col md:flex-row justify-between gap-10">
-            <div className="w-80 h-80 image-div">
+            <div className="w-80 h-80 shadow flex flex-row
+            items-center justify-center bg-slate-300">
               <img alt="product-image" src={product.image}
-                className="e-image" />
+                className="max-w-full max-h-full w-auto h-auto" />
             </div>
             <div className="flex flex-col gap-4 w-full flex-1">
               <div className="flex flex-row justify-between items-center">
@@ -77,7 +78,8 @@ const ProductInfoPage = () => {
               <div>{product.description}</div>
               <div className="flex flex-row items-end justify-between w-full gap-2">
                 <button onClick={(e) => addToCartClicked(e)}
-                  className="e-button-filled flex-1"
+                  className="border-0 p-2 bg-slate-900 text-white
+                  enabled:active:scale-95 transition duration-150 ease-in-out flex-1"
                 >Add to cart</button>
                 <div className="flex flex-col gap-2">
                   <span className="text-md text-slate-700">Quantity</span>

@@ -16,8 +16,8 @@ const CartPage = () => {
   };
 
   return (
-    <div className="page-wrapper">
-      <div className="page">
+    <div className="flex flex-col min-h-[100vh] justify-center items-center">
+      <div className="flex-1 p-10 max-w-screen-lg w-full">
         <h1 className="text-4xl font-bold pb-6">Your cart</h1>
         <div className="flex flex-col md:flex-row justify-between gap-8">
           <div className="flex flex-col gap-8 md:max-w-lg">
@@ -31,7 +31,8 @@ const CartPage = () => {
           {cartItems.length > 0 && <div className="flex flex-col gap-6">
             <div className="text-2xl">Order Summary</div>
             <OrderSummary />
-            <button className="e-button-filled w-full" onClick={proceedToCheckoutClicked}
+            <button className="border-0 p-2 bg-slate-900 text-white enabled:active:scale-95
+            transition duration-150 ease-in-out w-full" onClick={proceedToCheckoutClicked}
             >Proceed to checkout</button>
           </div>}
         </div>

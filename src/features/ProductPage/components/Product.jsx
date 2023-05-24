@@ -12,9 +12,9 @@ const Product = ({productObj}) => {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="w-40 h-40 image-div">
+      <div className="w-40 h-40 shadow flex flex-row items-center justify-center bg-slate-300">
         <img alt="product-image" src={productObj.image}
-          className="e-image" />
+          className="max-w-full max-h-full w-auto h-auto" />
       </div>
       <button onClick={(e) => onProductClicked(
           e,

@@ -3,8 +3,8 @@ import Footer from '../../Footer/components/Footer';
 import ProductListing from './ProductListing';
 import Filters from './Filters';
 
-const ProductPage = () => <div className="page-wrapper">
-  <div className="page">
+const ProductPage = () => <div className="flex flex-col min-h-[100vh] justify-center items-center">
+  <div className="flex-1 p-10 max-w-screen-lg w-full">
     <div className="flex flex-col gap-20">
       <div className="flex flex-col gap-4">
         <h1 className="text-4xl font-bold">MyBag</h1>

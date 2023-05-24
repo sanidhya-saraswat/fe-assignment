@@ -86,7 +86,7 @@ const ProductListing = () => {
                 <Product key={productObj.temp_id} productObj={productObj} />)}
             </div>
             {!isLastPage &&
-              <button className="e-button"
+              <button className="border-slate-500 border-2 p-2 active:scale-95"
                 onClick={loadMoreProductsClicked}>Load more products
                 {loadingMoreProducts &&
                 <BiLoaderCircle className="animate-spin inline" size="28" />}</button>}

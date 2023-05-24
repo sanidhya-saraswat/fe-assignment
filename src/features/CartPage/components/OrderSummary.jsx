@@ -23,10 +23,12 @@ const OrderSummary = () => {
   return <div className="flex flex-col gap-8">
     <div className="flex flex-row gap-2">
       <input placeholder="Enter coupon code here"
-        className="e-text-field-with-border w-full" name="couponCode"
+        className="bg-transparent h-8 focus:outline-none border-2 border-slate-300 p-4 w-full"
+        name="couponCode"
         value={couponCode} onChange={(e) => setCouponCode(e.target.value)} />
       <button onClick={(e) => applyCouponClicked(e)}
-        className="e-button-filled"
+        className="border-0 p-2 bg-slate-900 text-white enabled:active:scale-95 transition
+        duration-150 ease-in-out"
       >Apply</button>
     </div>
     <div className="flex flex-col gap-4">

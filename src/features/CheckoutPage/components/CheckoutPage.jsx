@@ -24,8 +24,8 @@ const CheckoutPage = () => {
     navigate('/order-placed');
   };
 
-  return <div className="page-wrapper">
-    <div className="page">
+  return <div className="flex flex-col min-h-[100vh] justify-center items-center">
+    <div className="flex-1 p-10 max-w-screen-lg w-full">
       <h1 className="text-4xl font-bold pb-6">Checkout</h1>
       <div className="flex flex-col md:flex-row gap-4 justify-between">
         {cartItems.length > 0 && <div className="md:max-w-lg order-2 md:order-1">

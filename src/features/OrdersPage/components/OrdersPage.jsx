@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {SAMPLE_ORDERS} from '../../../constants';
 import Footer from '../../Footer/components/Footer';
 
 const OrdersPage = () => {
@@ -6,44 +7,11 @@ const OrdersPage = () => {
 
   useEffect(() => {
     // currently setting orders manually. In future will fetch orders from API
-    setOrders([
-      {
-        orderNo: 135,
-        paymentStatus: 'COMPLETED',
-        amount: '$345',
-        address: 'Mumbai',
-        orderDate: '24th Nov 2022',
-      },
-      {
-        orderNo: 43,
-        paymentStatus: 'COMPLETED',
-        amount: '$34',
-        address: 'Mumbai',
-        orderDate: '24th Dec 2022',
-      }, {
-        orderNo: 34,
-        paymentStatus: 'COMPLETED',
-        amount: '$87',
-        address: 'Mumbai',
-        orderDate: '1st Jan 2022',
-      }, {
-        orderNo: 1335,
-        paymentStatus: 'FAILED',
-        amount: '$787',
-        address: 'Mumbai',
-        orderDate: '4th April 2023',
-      }, {
-        orderNo: 336,
-        paymentStatus: 'COMPLETED',
-        amount: '$999',
-        address: 'Mumbai',
-        orderDate: '11th Nov 2022',
-      },
-    ]);
+    setOrders(SAMPLE_ORDERS);
   }, []);
 
-  return <div className="page-wrapper">
-    <div className="page">
+  return <div className="flex flex-col min-h-[100vh] justify-center items-center">
+    <div className="flex-1 p-10 max-w-screen-lg w-full">
       <h1 className="text-4xl font-bold">My Orders</h1>
       <div className="text-xs mt-1 text-slate-600 pt-4 pb-4">
         Currently showing sample data since login is not yet implemented.</div>

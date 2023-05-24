@@ -50,34 +50,42 @@ const ShippingInformation = ({submitHandler}) => {
     <div className="flex flex-col gap-2">
       <div className="flex flex-row gap-2">
         <input placeholder="First Name"
-          className="e-text-field-with-border min-w-[5rem] w-full" name="firstName"
+          className="bg-transparent h-8 focus:outline-none border-2
+          border-slate-300 p-4 min-w-[5rem] w-full" name="firstName"
           value={firstName} onChange={(e) => onFormInputChange(e)} />
         <input placeholder="Last Name"
-          className="e-text-field-with-border min-w-[5rem] w-full" name="lastName"
+          className="bg-transparent h-8 focus:outline-none border-2
+          border-slate-300 p-4 min-w-[5rem] w-full" name="lastName"
           value={lastName} onChange={(e) => onFormInputChange(e)} />
       </div>
       <input placeholder="Address"
-        className="e-text-field-with-border min-w-[5rem]" name="address"
+        className="bg-transparent h-8 focus:outline-none border-2
+        border-slate-300 p-4 min-w-[5rem]" name="address"
         value={address} onChange={(e) => onFormInputChange(e)} />
       <input placeholder="Apartment,suite,etc (Optional)"
-        className="e-text-field-with-border min-w-[5rem]" name="apartment"
+        className="bg-transparent h-8 focus:outline-none border-2
+        border-slate-300 p-4 min-w-[5rem]" name="apartment"
         value={apartment} onChange={(e) => onFormInputChange(e)} />
       <div className="flex flex-row gap-2">
         <input disabled placeholder="State"
-          className="e-text-field-with-border min-w-[5rem] disabled:bg-slate-300" name="state"
+          className="bg-transparent h-8 focus:outline-none border-2
+          border-slate-300 p-4 min-w-[5rem] disabled:bg-slate-300" name="state"
           value={state} onChange={(e) => onFormInputChange(e)} />
         <input placeholder="City"
-          className="e-text-field-with-border min-w-[5rem] disabled:bg-slate-300" name="city"
+          className="bg-transparent h-8 focus:outline-none border-2
+          border-slate-300 p-4 min-w-[5rem] disabled:bg-slate-300" name="city"
           value={city} disabled onChange={(e) => onFormInputChange(e)} />
         <input placeholder="PINCODE"
-          className="e-text-field-with-border min-w-[5rem]" name="pincode"
+          className="bg-transparent h-8 focus:outline-none border-2
+          border-slate-300 p-4 min-w-[5rem]" name="pincode"
           value={pincode} onChange={(e) => onFormInputChange(e)} />
       </div>
 
     </div>
     <button disabled={getButtonDisabledState()}onClick={(e) =>
       submitHandler(e, {firstName, lastName, address, apartment, state, city, pincode})}
-    className="e-button-filled w-full"
+    className="border-0 p-2 bg-slate-900 text-white enabled:active:scale-95
+    transition duration-150 ease-in-out w-full"
     >Proceed to payment</button>
   </div>;
 };
