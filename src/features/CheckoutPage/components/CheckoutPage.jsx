@@ -1,0 +1,47 @@
+import CartItemListing from '../../CartPage/components/CartItemListing';
+import OrderSummary from '../../CartPage/components/OrderSummary';
+import Footer from '../../Footer/components/Footer';
+import React, {useState} from 'react';
+import ShippingInformation from './ShippingInformation';
+import PaymentInformation from './PaymentInformation';
+import {useNavigate} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
+import {getCart, setCart} from '../../CartPage/slices/cartSlice';
+
+const CheckoutPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const cartItems = useSelector(getCart);
+  const [currentTab, setCurrentTab] = useState('shipping');
+  const proceedToPaymentClicked = (e, shippingInfo)=>{
+    // use shippingInfo here
+    setCurrentTab('payment');
+  };
+
+  const payButtonClicked = (e, paymentInfo)=>{
+    // use paymentInfo here
+    dispatch(setCart([]));
+    navigate('/order-placed');
+  };
+
+  return <div className="flex flex-col min-h-[100vh] justify-center items-center">
+    <div className="flex-1 p-10 max-w-screen-lg w-full">
+      <h1 className="text-4xl font-bold pb-6">Checkout</h1>
+      <div className="flex flex-col md:flex-row gap-4 justify-between">
+        {cartItems.length > 0 && <div className="md:max-w-lg order-2 md:order-1">
+          {currentTab == 'shipping' ?
+          <ShippingInformation submitHandler={proceedToPaymentClicked} /> :
+        <PaymentInformation submitHandler={payButtonClicked} />}
+        </div>}
+        <div className="flex flex-col gap-8 order-1 md:order-2">
+          {cartItems.length > 0 && <div className="text-xl">Your cart</div>}
+          <CartItemListing />
+          {cartItems.length > 0 && <OrderSummary />}
+        </div>
+      </div>
+    </div>
+    <Footer />
+  </div>;
+};
+
+export default CheckoutPage;
