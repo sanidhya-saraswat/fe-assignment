@@ -1,7 +1,5 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {useState, useEffect} from 'react';
-import {fetchCategories} from '../../../common/utils/api';
 import {AiFillStar} from 'react-icons/ai';
 import {BiLoaderCircle} from 'react-icons/bi';
 import {
@@ -16,12 +14,14 @@ import {
 import {GoSearch} from 'react-icons/go';
 import {DEFAULT_MAX_PRICE, DEFAULT_MIN_PRICE, DEFAULT_RATING} from '../../../constants';
 import Checkbox from '../../../common/components/Checkbox';
+import {setAllAvailableCategories} from '../slices/availableCategoriesThunk';
+import {getAvailableCategories} from '../slices/availableCategoriesSlice';
 
 const Filters = () => {
   const dispatch = useDispatch();
-  const [availableCategories, setAvailableCategories] = useState([]);
   const availableRatings = [3, 4];
   const filters = useSelector(getFilters);
+  const availableCategories = useSelector(getAvailableCategories);
   const formatCategory = useCallback(
       (category) => {
         return ' ' + category.charAt(0).toUpperCase() + category.slice(1);
@@ -31,19 +31,10 @@ const Filters = () => {
 
   useEffect(
       () => {
-        setAvailableCategoriesInComponent();
+        dispatch(setAllAvailableCategories());
       },
       [],
   );
-
-  const setAvailableCategoriesInComponent = async () => {
-    let response = await fetchCategories();
-    response = response.slice(
-        0,
-        6,
-    ); // Reducing categories until collapsible-category-selector is designed
-    setAvailableCategories(response);
-  };
 
   const onCategoryChange = (category) => {
     if (filters.categories.includes(category)) {
@@ -73,7 +64,7 @@ const Filters = () => {
     }
   };
 
-  const onSearch = (e)=>{
+  const onSearch = (e) => {
     dispatch(setSearchString(e.target.value.trim()));
   };
 
@@ -86,7 +77,7 @@ const Filters = () => {
           <input placeholder="Search for a product"
             className="bg-transparent h-8 focus:outline-none border-b-2
             border-slate-400 w-full min-w-[15rem]"
-            name="myInput" value={filters.searchString} onChange={onSearch}/>
+            name="myInput" value={filters.searchString} onChange={onSearch} />
         </div>
         <div className="text-xs mt-1 text-slate-600">
           Search is limited. API does not support it.</div>

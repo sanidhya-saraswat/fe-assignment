@@ -1,30 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import Footer from '../../Footer/components/Footer';
-import {fetchProductById} from '../../../common/utils/api';
 import {useParams} from 'react-router';
 import {AiOutlineHeart} from 'react-icons/ai';
 import {BiLinkExternal} from 'react-icons/bi';
 import {addToCart} from '../../CartPage/slices/cartSlice';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {setSnackbarConfig} from '../../../common/slices/snackbarSlice';
+import {setProductById} from '../slices/productThunk';
+import {getProduct} from '../slices/ProductSlice';
 
 const ProductInfoPage = () => {
-  const [product, setProduct] = useState(null);
+  const product = useSelector(getProduct);
   const [quantity, setQuantity] = useState(1);
   const {id} = useParams();
   const dispatch = useDispatch();
 
   useEffect(
       () => {
-        setProductById();
+        dispatch(setProductById(id));
       },
       [],
   );
-
-  const setProductById = async () => {
-    const response = await fetchProductById(id);
-    setProduct(response);
-  };
 
   const incrementQuantity = () => {
     if (quantity < 50) {

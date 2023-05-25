@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {setProducts, addProducts, getProducts} from '../slices/productSlice';
+import {setProducts, addProducts, getProducts} from '../slices/productListSlice';
 import {fetchProducts} from '../../../common/utils/api';
 import {useState, useEffect} from 'react';
 import {PRODUCT_LISTING_LIMIT} from '../../../constants';
